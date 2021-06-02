@@ -348,6 +348,35 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "GET Ledger for user for group",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/users/1/get_ledger_for_group?group_id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"1",
+						"get_ledger_for_group"
+					],
+					"query": [
+						{
+							"key": "group_id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
