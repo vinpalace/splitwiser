@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-7^7y+w)rb+z#6k_0p9r&20s=0qwxko)fp-kb@h+oe0@rrv8lc%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['setu-splitwise.herokuapp.com']
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
