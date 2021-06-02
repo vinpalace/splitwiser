@@ -75,7 +75,7 @@ class UserViewSet(viewsets.ModelViewSet):
                         or
                         sum(percentage_list) != 100):
                     raise Exception(
-                        "Please send same number of percentages as users and make sure it adds upto 100")
+                        f"Please send same number of percentages as users({number_of_users}) and make sure it adds upto 100")
                 amount_list = []
                 for percentage in percentage_list:
                     amount_list.append(amount * percentage/100)
@@ -206,7 +206,6 @@ class UserViewSet(viewsets.ModelViewSet):
             )
 
         except Exception as e:
-            raise e
             return Response(
                 {'status': status.HTTP_400_BAD_REQUEST, 'message': str(e)}
             )

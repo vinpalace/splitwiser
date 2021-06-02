@@ -1,0 +1,353 @@
+{
+	"info": {
+		"_postman_id": "c6e780ca-745c-419b-ae8e-ab6d209e8833",
+		"name": "Splitwise",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CREATE User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "Rushil",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "rushil@email.com",
+							"type": "text"
+						},
+						{
+							"key": "is_staff",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE Group",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Millionaires",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/groups/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"groups",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Millionaires",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD User To Group",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "4",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/v1/groups/1/add_user_to_group/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"groups",
+						"1",
+						"add_user_to_group",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REMOVE User From Group",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/groups/1/remove_user_from_group/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"groups",
+						"1",
+						"remove_user_from_group",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE payment to user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "to_user_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "group_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "amount",
+							"value": "250",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/users/1/make_payment_to_user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"1",
+						"make_payment_to_user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE Expense",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "to_user_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "group_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "amount",
+							"value": "500",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/users/1/create_expense/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"1",
+						"create_expense",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE Group EQUAL expense",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "group_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "split_strategy",
+							"value": "split_equal",
+							"type": "text"
+						},
+						{
+							"key": "amount",
+							"value": "900",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/users/1/create_group_expense/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"1",
+						"create_group_expense",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE Group UNEQUAL expense",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "percentage[]",
+							"value": "20",
+							"type": "text"
+						},
+						{
+							"key": "percentage[]",
+							"value": "80",
+							"type": "text"
+						},
+						{
+							"key": "split_strategy",
+							"value": "split_unequal",
+							"type": "text"
+						},
+						{
+							"key": "amount",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "split_unequal_strategy",
+							"value": "split_by_percentage",
+							"type": "text"
+						},
+						{
+							"key": "group_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/users/1/create_group_expense/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"1",
+						"create_group_expense",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
