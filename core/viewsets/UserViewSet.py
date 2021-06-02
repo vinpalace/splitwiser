@@ -93,13 +93,12 @@ class UserViewSet(viewsets.ModelViewSet):
         try:
             group_id = request_params['group_id'][0]
         except MultiValueDictKeyError:
-            group_id = 1
-            # return Response(
-            #     {
-            #         'status': status.HTTP_400_BAD_REQUEST,
-            #         'message': "Please send 'group_id' as query parameter"
-            #     }
-            # )
+            return Response(
+                {
+                    'status': status.HTTP_400_BAD_REQUEST,
+                    'message': "Please send 'group_id' as query parameter"
+                }
+            )
 
         try:
             group = Group.objects.get(id=group_id)
