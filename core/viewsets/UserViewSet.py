@@ -164,7 +164,10 @@ class UserViewSet(viewsets.ModelViewSet):
             group = Group.objects.get(id=request_params['group_id'])
 
             split_strategy = request_params['split_strategy'] or SPLIT_EQUAL
-            split_unequal_strategy = request_params['split_unequal_strategy'] or SPLIT_BY_AMOUNT
+            split_unequal_strategy = None
+            if split_strategy == SPLIT_UNEQUAL:
+                split_unequal_strategy = request_params['split_unequal_strategy'] or SPLIT_BY_AMOUNT
+
             amount = int(request_params['amount'])
 
             if split_strategy not in SPLIT_STRATEGIES:
@@ -173,7 +176,7 @@ class UserViewSet(viewsets.ModelViewSet):
                 raise Exception("Invalid Split Unequal Strategy")
 
             mapping_list = GroupMapping.objects.filter(
-                group=group).exclude(user=user)
+                group=group)
             users = [mapping.user for mapping in mapping_list]
 
             user_amount_zip = self.split_amount(
