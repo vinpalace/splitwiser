@@ -1,0 +1,1 @@
+web: gunicorn splitwise.wsgi --log-file -
